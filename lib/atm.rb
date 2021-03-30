@@ -1,3 +1,4 @@
+# we completed the atm rb file
 class Atm
     attr_accessor :funds
 
