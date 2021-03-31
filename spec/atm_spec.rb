@@ -1,6 +1,12 @@
 require_relative '../lib/atm'
 
 describe Atm do
+    let(:account){instance_double('Acount')}
+
+    before do
+        allow(account).to receive(:balance).and_return(100)
+        allow(account).to receive(:balance=)
+    end
     
     it 'is expected to be an instance of Atm' do
         expect(subject.class).to eq Atm
@@ -16,6 +22,3 @@ describe Atm do
     end
 
 end
-
-#message
-#thank you i receuived your message after long time
