@@ -16,3 +16,5 @@ describe Atm do
     end
 
 end
+
+#message
