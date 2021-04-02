@@ -4,13 +4,6 @@ class Atm
     def initialize
         @funds = 1000
     end
-    
-    /
-    def disabled_account?(account_status)
-        avtive != disabled
-        
-    end
-    /
 
     def withdraw(amount, pin_code, account, account_status) 
         
@@ -43,7 +36,7 @@ class Atm
     def perform_transaction(amount, account)
         @funds -= amount
         account.balance = account.balance - amount
-        { status: true , message: 'success', amount: amount,date: Date.today}
+        { status: true , message: 'success', amount: amount,date: Date.today,bills: add_cash(amount)}
     end
     def insufficient_funds_in_atm?(amount)
         @funds < amount
@@ -61,17 +54,20 @@ class Atm
         Date.strptime(exp_date, '%m/%y') < Date.today
          
     end
+    def add_cash(amount)
+        cash=[50,20,10,5]
+        bills=[]
+        amount=120
+        cash.each do |bill|
+            while amount-bill>=0
+                amount -= bill
+                bills<<bill
+            end
+            bills
+        
+            end
+    end
+
     
-
-
-
-
-
-  
 end
-    
 
-  
-     
-  
-  
