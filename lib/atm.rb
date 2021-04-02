@@ -2,36 +2,11 @@
 class Atm
     attr_accessor :funds
 
-    def initialize
-        @funds=1000
+    def initialize(attributes)
+        self.funds= attributes[:initial_funds]
     end
 
-    def withdraw(amount,account)
-
-       case
-       when insufficient_funds_in_account?(amount, account)
-        {status:false, message:'insufficient funds', date: Time:now}
-       else
-        perform_transaction(amount, account)
-        
+    def withdraw(attrs)
+        @funds -= attrs[:amount]
     end
 end
-
-
-
-private
-#changed the methods
-
-def insufficient_funds_in_account?(amount, account)
-    amount>account.balance
-    
-end
-
-def perform_transaction(amount, account)
-    @fund -= amount
-    account.balance=account.balance-amount
-    {status:true, message:'success', date: Time.now , amount:amount}
-    
-end
-end
-
