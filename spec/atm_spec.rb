@@ -46,12 +46,8 @@ describe Atm do
         expected_output={status: false, message: 'disabled account',date: Date.today}
         expect(subject.withdraw(6,'1234', account, :disabled)).to eq expected_output
     end
-
-    
-    
-
 end
-# work in progress
+
 
 
 

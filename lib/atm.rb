@@ -14,7 +14,8 @@ class Atm
             account.balance = account.balance - amount
         else
             {status: 'error',message:'you cant do this!'}
-      end
+      endclear
+      
     end 
 end
     def initialize
