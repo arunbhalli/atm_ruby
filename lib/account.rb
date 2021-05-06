@@ -10,3 +10,4 @@ end
 
 def set_expiry_date
   Date.today.next_year(Account::STANDARD_VALIDITY_YRS).strftime('%m/%Y')
+end
